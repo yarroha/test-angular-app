@@ -1,16 +1,11 @@
 class ItemsTableViewController {
-    constructor($uibModal) {
-        this.$uibModal = $uibModal;
-    }
-
-    openModal() {
-        this.$uibModal.open({
-            template: 'content',
-            controller: function () {}
-        });
+    constructor(itemsManager, state) {
+        this.itemsManager = itemsManager;
+        this.state = state;
+        this.itemsManager.getAll();
     }
 }
 
-ItemsTableViewController.$inject = ['$uibModal'];
+ItemsTableViewController.$inject = ['itemsManager', 'state'];
 
 export { ItemsTableViewController };
