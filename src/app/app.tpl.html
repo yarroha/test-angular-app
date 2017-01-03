@@ -1,0 +1,24 @@
+<div class="container">
+    <!-- start of navbar-->
+    <nav class="navbar navbar-inverse" class="container-fluid">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand">Test task</a>
+            </div>
+            <ul class="nav navbar-nav navbar-left">
+                <li ui-sref="items.table" ui-sref-active="active">
+                    <a>Items table view</a>
+                </li>
+                <li ui-sref="items.tile" ui-sref-active="active">
+                    <a>Items tile view</a>
+                </li>
+                <li ui-sref="item({id: null})" ui-sref-active="active">
+                    <a>Create/add item</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- end of navbar -->
+
+    <div ui-view></div>
+</div>
