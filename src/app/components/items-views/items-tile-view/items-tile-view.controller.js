@@ -1,6 +1,11 @@
 class ItemsTileViewController {
-    constructor() {}
+    constructor(itemsManager, state) {
+        this.itemsManager = itemsManager;
+        this.state = state;
+        this.itemsManager.getAll();
+    }
 }
 
-// ItemsTileViewComponent.$inject = ['SomeService'];
+ItemsTileViewController.$inject = ['itemsManager', 'state'];
+
 export { ItemsTileViewController };

@@ -1,1 +1,7 @@
-Items <b>Tile</b> View Component's content
+<div class="tile" ng-repeat="item in $ctrl.state.itemsPages.foundItems">
+    <img src="{{ item.imageData }}">
+    {{ item.title }} <br/>
+    {{ item.prop_1 }} <br/>
+    {{ item.prop_2 }} <br/>
+    {{ item.prop_3 }} <br/>
+</div>

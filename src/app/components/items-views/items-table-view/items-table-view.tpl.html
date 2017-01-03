@@ -1,6 +1,18 @@
-Items <b>Table</b> View Component's content
-<br />
-Items:
-<div ng-repeat="item in $ctrl.state.itemsPages.foundItems">
-    name: {{ item.name }}
-</div>
+<table class="table">
+    <thead>
+    <tr>
+        <th>Title</th>
+        <th>Property #1</th>
+        <th>Property #2</th>
+        <th>Property #3</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="item in $ctrl.state.itemsPages.foundItems">
+        <td>{{ item.title }}</td>
+        <td>{{ item.prop_1 }}</td>
+        <td>{{ item.prop_2 }}</td>
+        <td>{{ item.prop_3 }}</td>
+    </tr>
+    </tbody>
+</table>
