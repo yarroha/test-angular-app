@@ -5,22 +5,22 @@
     <form name="$ctrl.form">
         <div class="input-group">
             <span class="input-group-addon" id="sizing-addon1">Title</span>
-            <input type="text" ng-model="$ctrl.state.crudPage.itemInForm.title" class="form-control" placeholder="title">
+            <input type="text" ng-model="$ctrl.state.crudPage.itemInForm.title" ng-change="$ctrl.checkPossibilityForResetChanges()" class="form-control" placeholder="title">
         </div>
 
         <div class="input-group">
             <span class="input-group-addon" id="sizing-addon2">Propery #1</span>
-            <input type="text" ng-model="$ctrl.state.crudPage.itemInForm.prop_1" class="form-control" placeholder="prop_1">
+            <input type="text" ng-model="$ctrl.state.crudPage.itemInForm.prop_1" ng-change="$ctrl.checkPossibilityForResetChanges()" class="form-control" placeholder="prop_1">
         </div>
 
         <div class="input-group">
             <span class="input-group-addon" id="sizing-addon3">Propery #2</span>
-            <input type="text" ng-model="$ctrl.state.crudPage.itemInForm.prop_2" class="form-control" placeholder="prop_2">
+            <input type="text" ng-model="$ctrl.state.crudPage.itemInForm.prop_2" ng-change="$ctrl.checkPossibilityForResetChanges()" class="form-control" placeholder="prop_2">
         </div>
 
         <div class="input-group">
             <span class="input-group-addon" id="sizing-addon4">Propery #3</span>
-            <input type="text" ng-model="$ctrl.state.crudPage.itemInForm.prop_3" class="form-control" placeholder="prop_3">
+            <input type="text" ng-model="$ctrl.state.crudPage.itemInForm.prop_3" ng-change="$ctrl.checkPossibilityForResetChanges()" class="form-control" placeholder="prop_3">
         </div>
 
         <h4>Item's Image</h4>
@@ -42,7 +42,11 @@
             ng-if="$ctrl.state.crudPage.itemInForm.id">
         Delete Item
     </button>
-    <button type="button" class="btn btn-default" ng-click="$ctrl.openModal()">Show modal</button>
+    <button type="button" class="btn btn-default"
+            ng-click="$ctrl.resetChanges()"
+            ng-disabled="$ctrl.resetChangesDisabled">
+        Reset changes
+    </button>
 
 
 </div>

@@ -8,6 +8,7 @@ class ItemCrudController {
         this.$state = $state;
         this.itemsManager = itemsManager;
         this.fileReader = new FileReader();
+        this.resetChangesDisabled = false;
 
         this._prepareEditDataIfNeeded();
 
@@ -23,13 +24,14 @@ class ItemCrudController {
         }, false);
 
         this.fileReader.readAsDataURL(fileBlob);
+        this.checkPossibilityForResetChanges();
     }
 
     _prepareEditDataIfNeeded() {
         if (this.$stateParams.id) {
-            this.itemsManager.getByIdAndUpdateItemInEditState(this.$stateParams.id);
+            this.itemsManager.getByIdAndUpdateStockItemState(this.$stateParams.id);
         } else {
-            this.itemsManager.clearItemInEditState();
+            this.itemsManager.clearStockItemState();
         }
     }
 
@@ -55,6 +57,15 @@ class ItemCrudController {
                 this.$state.go('items.table');
             });
         });
+    }
+
+    resetChanges() {
+        this.itemsManager.resetChangesInEditForm();
+        this.checkPossibilityForResetChanges();
+    }
+
+    checkPossibilityForResetChanges() {
+        this.resetChangesDisabled = JSON.stringify(this.state.crudPage.stockItem) === JSON.stringify(this.state.crudPage.itemInForm);
     }
 }
 

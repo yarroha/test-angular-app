@@ -27,16 +27,16 @@ export default class ItemsManager {
             });
     }
 
-    getByIdAndUpdateItemInEditState(id) {
+    getByIdAndUpdateStockItemState(id) {
         this.restApiService.getById(id)
             .then((response) => {
-                this.state.crudPage.itemInEdit = angular.copy(response.data);
+                this.state.crudPage.stockItem = angular.copy(response.data);
                 this.state.crudPage.itemInForm = response.data;
             });
     }
 
-    clearItemInEditState() {
-        this.state.crudPage.itemInForm = {
+    clearStockItemState() {
+        this.state.crudPage.stockItem = {
             id: '',
             title: '',
             prop_1: '',
@@ -45,7 +45,11 @@ export default class ItemsManager {
             imageData: ''
         };
 
-        this.state.crudPage.itemInEdit = angular.copy(this.state.crudPage.itemInForm);
+        this.resetChangesInEditForm();
+    }
+
+    resetChangesInEditForm() {
+        this.state.crudPage.itemInForm = angular.copy(this.state.crudPage.stockItem);
     }
 }
 

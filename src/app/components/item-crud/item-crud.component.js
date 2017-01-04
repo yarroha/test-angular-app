@@ -5,6 +5,8 @@ import {ItemCrudController} from './item-crud.controller';
 export let ItemCrudComponent = {
     selector: 'itemCrud',
     template: template,
-    bindings: {},
+    bindings: {
+        resetChangesDisabled: '='
+    },
     controller: ItemCrudController
 };
