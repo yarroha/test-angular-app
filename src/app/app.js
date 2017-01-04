@@ -15,6 +15,9 @@ import {AppComponent} from './app.component';
 import FakeBackend from './services/fake-backend.service';
 import State from './services/state.service';
 import ItemsManager from './services/items-manager.service';
+import RestApiService from './services/rest-api.service';
+import CustomOnChangeDirective from './directives/custom-on-change.directive';
+import CustomOnDropDirective  from './directives/custom-on-drop.directive';
 
 const MODULE_NAME = 'app';
 
@@ -27,6 +30,9 @@ angular.module(MODULE_NAME, [
     .service('state', State)
     .service('itemsManager', ItemsManager)
     .service('fakeBackend', FakeBackend)
+    .service('restApiService', RestApiService)
+    .directive('customOnChange', () => new CustomOnChangeDirective())
+    .directive('customOnDrop', () => new CustomOnDropDirective())
     .component(ItemsTableViewComponent.selector, ItemsTableViewComponent)
     .component(ItemsTileViewComponent.selector, ItemsTileViewComponent)
     .component(ItemCrudComponent.selector, ItemCrudComponent)

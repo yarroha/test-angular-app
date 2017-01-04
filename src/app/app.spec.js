@@ -2,19 +2,19 @@ import app from './app';
 
 describe('app', () => {
 
-  describe('AppCtrl', () => {
-    let ctrl;
+    describe('AppCtrl', () => {
+        let ctrl;
 
-    beforeEach(() => {
-      angular.mock.module(app);
+        beforeEach(() => {
+            angular.mock.module(app);
 
-      angular.mock.inject(($controller) => {
-        ctrl = $controller('AppCtrl', {});
-      });
+            angular.mock.inject(($controller) => {
+                ctrl = $controller('AppCtrl', {});
+            });
+        });
+
+        it('should contain the starter url', () => {
+            expect(ctrl.url).toBe('http://localhost:8080/');
+        });
     });
-
-    it('should contain the starter url', () => {
-      expect(ctrl.url).toBe('http://localhost:8080/');
-    });
-  });
 });

@@ -1,7 +1,31 @@
-<div class="tile" ng-repeat="item in $ctrl.state.itemsPages.foundItems">
-    <img src="{{ item.imageData }}">
-    {{ item.title }} <br/>
-    {{ item.prop_1 }} <br/>
-    {{ item.prop_2 }} <br/>
-    {{ item.prop_3 }} <br/>
+<div class="items-tile-view">
+    <div class="row">
+        <div ng-repeat="item in $ctrl.state.itemsPages.foundItems" class="col-xs-6 col-md-4">
+            <div ui-sref="item({id: item.id})">
+                <a class="pointer">
+                    <img ng-src="{{ item.imageData }}" class="img-rounded tile-image">
+                </a>
+            </div>
+            <div ui-sref="item({id: item.id})">
+                <a class="pointer">
+                {{ item.title }}
+                </a>
+            </div>
+            <div ui-sref="item({id: item.id})">
+                <a class="pointer">
+                {{ item.prop_1 }}
+                </a>
+            </div>
+            <div ui-sref="item({id: item.id})">
+                <a class="pointer">
+                {{ item.prop_2 }}
+                </a>
+            </div>
+            <div ui-sref="item({id: item.id})">
+                <a class="pointer">
+                {{ item.prop_3 }}
+                </a>
+            </div>
+        </div>
+    </div>
 </div>

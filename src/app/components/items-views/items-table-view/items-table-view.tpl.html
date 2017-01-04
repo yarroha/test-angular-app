@@ -9,7 +9,11 @@
     </thead>
     <tbody>
     <tr ng-repeat="item in $ctrl.state.itemsPages.foundItems">
-        <td>{{ item.title }}</td>
+        <td ui-sref="item({id: item.id})">
+            <a class="pointer">
+                {{ item.title }}
+            </a>
+        </td>
         <td>{{ item.prop_1 }}</td>
         <td>{{ item.prop_2 }}</td>
         <td>{{ item.prop_3 }}</td>

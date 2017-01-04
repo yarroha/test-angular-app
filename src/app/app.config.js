@@ -1,6 +1,6 @@
-import { ItemsTableViewComponent } from './components/items-views/items-table-view/items-table-view.component';
-import { ItemsTileViewComponent } from './components/items-views/items-tile-view/items-tile-view.component';
-import { ItemCrudComponent } from "./components/item-crud/item-crud.component";
+import {ItemsTableViewComponent} from './components/items-views/items-table-view/items-table-view.component';
+import {ItemsTileViewComponent} from './components/items-views/items-tile-view/items-tile-view.component';
+import {ItemCrudComponent} from "./components/item-crud/item-crud.component";
 
 routing.$inject = ['$urlRouterProvider', '$locationProvider', '$stateProvider'];
 

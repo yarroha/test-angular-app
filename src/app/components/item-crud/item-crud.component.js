@@ -1,5 +1,6 @@
 import template from './item-crud.tpl.html';
-import { ItemCrudController } from './item-crud.controller';
+import './item-crud.style.scss'
+import {ItemCrudController} from './item-crud.controller';
 
 export let ItemCrudComponent = {
     selector: 'itemCrud',

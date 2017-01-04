@@ -3,9 +3,13 @@ export default class State {
         this.itemsPages = {
             searchValue: '',
             foundItems: [],
+            amountOFFoundItems: 0,
             itemsPerPage: null,
             currentPageNumber: null,
         };
-        this.editableItem = {};
+        this.crudPage = {
+            stockItem: {},
+            itemInForm: {}
+        };
     }
 };

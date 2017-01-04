@@ -1,5 +1,5 @@
 import template from './items-table-view.tpl.html';
-import { ItemsTableViewController } from './items-table-view.controller';
+import {ItemsTableViewController} from './items-table-view.controller';
 
 export let ItemsTableViewComponent = {
     selector: 'itemsTableView',

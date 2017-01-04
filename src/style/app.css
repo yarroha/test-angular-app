@@ -2,3 +2,13 @@ a,
 a label {
     cursor: pointer;
 }
+
+a.pointer {
+     cursor: pointer;
+     color: #337ab7;
+ }
+
+a.pointer:hover {
+    color: #23527c;
+    text-decoration: underline;
+}
