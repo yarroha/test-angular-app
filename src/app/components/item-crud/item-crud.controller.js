@@ -1,3 +1,5 @@
+import {RemoveItemConfirmationPopup} from './confirmation-popup/remove-item-confirmation-popup.component';
+
 class ItemCrudController {
     constructor($uibModal, $stateParams, state, itemsManager, $state) {
         this.$uibModal = $uibModal;
@@ -11,14 +13,6 @@ class ItemCrudController {
 
         //Dirty hack, as .bind() is not allowed inside of templates
         this.updateFile = this.updateFile.bind(this);
-    }
-
-    openModal() {
-        this.$uibModal.open({
-            template: 'Modal window content',
-            controller: function () {
-            }
-        });
     }
 
     updateFile(fileBlob, scope) {
@@ -52,8 +46,14 @@ class ItemCrudController {
     }
 
     deleteItem() {
-        this.itemsManager.deleteItem().then(() => {
-            this.$state.go('items.table');
+        let modalInstance = this.$uibModal.open({
+            component: RemoveItemConfirmationPopup.selector,
+        });
+
+        modalInstance.result.then(() => {
+            this.itemsManager.deleteItem().then(() => {
+                this.$state.go('items.table');
+            });
         });
     }
 }

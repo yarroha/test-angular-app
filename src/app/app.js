@@ -12,6 +12,7 @@ import {ItemsTableViewComponent} from './components/items-views/items-table-view
 import {ItemsTileViewComponent} from './components/items-views/items-tile-view/items-tile-view.component';
 import {ItemCrudComponent} from "./components/item-crud/item-crud.component";
 import {AppComponent} from './app.component';
+import {RemoveItemConfirmationPopup} from './components/item-crud/confirmation-popup/remove-item-confirmation-popup.component';
 import FakeBackend from './services/fake-backend.service';
 import State from './services/state.service';
 import ItemsManager from './services/items-manager.service';
@@ -33,6 +34,7 @@ angular.module(MODULE_NAME, [
     .service('restApiService', RestApiService)
     .directive('customOnChange', () => new CustomOnChangeDirective())
     .directive('customOnDrop', () => new CustomOnDropDirective())
+    .component(RemoveItemConfirmationPopup.selector, RemoveItemConfirmationPopup)
     .component(ItemsTableViewComponent.selector, ItemsTableViewComponent)
     .component(ItemsTileViewComponent.selector, ItemsTileViewComponent)
     .component(ItemCrudComponent.selector, ItemCrudComponent)
