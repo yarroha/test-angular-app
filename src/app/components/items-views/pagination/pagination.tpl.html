@@ -1,0 +1,11 @@
+<div class="pagination">
+    <ul uib-pagination
+        total-items="$ctrl.state.itemsPages.amountOfFoundItems"
+        items-per-page="$ctrl.state.itemsPages.itemsPerPage"
+        ng-model="$ctrl.state.itemsPages.currentPageNumber"
+        class="pagination-sm"
+        previous-text="&lsaquo;"
+        next-text="&rsaquo;"
+        ng-change="$ctrl.search()">
+    </ul>
+</div>

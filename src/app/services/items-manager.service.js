@@ -19,16 +19,20 @@ export default class ItemsManager {
         return this.restApiService.deleteItemById(this.state.crudPage.itemInForm.id);
     }
 
-    searchAndUpdateItemsState(searchString, offset, limit) {
-        this.restApiService.search(searchString, offset, limit)
+    searchAndUpdateItemsState() {
+        let searchValue = this.state.itemsPages.searchValue;
+        let offset = (this.state.itemsPages.currentPageNumber - 1) * this.state.itemsPages.itemsPerPage;
+        let limit = this.state.itemsPages.itemsPerPage;
+
+        return this.restApiService.search(searchValue, offset, limit)
             .then((response) => {
                 this.state.itemsPages.foundItems = response.data.items;
-                this.state.itemsPages.amountOFFoundItems = response.data.total;
+                this.state.itemsPages.amountOfFoundItems = response.data.total;
             });
     }
 
     getByIdAndUpdateStockItemState(id) {
-        this.restApiService.getById(id)
+        return this.restApiService.getById(id)
             .then((response) => {
                 this.state.crudPage.stockItem = angular.copy(response.data);
                 this.state.crudPage.itemInForm = response.data;

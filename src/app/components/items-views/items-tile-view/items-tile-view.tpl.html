@@ -1,31 +1,52 @@
 <div class="items-tile-view">
     <div class="row">
+        <div class="col-sm-6">
+            <search-input></search-input>
+        </div>
+        <div class="col-sm-3">
+            <items-per-page></items-per-page>
+        </div>
+        <div class="col-sm-3">
+            <pagination></pagination>
+        </div>
+    </div>
+    <div class="row">
         <div ng-repeat="item in $ctrl.state.itemsPages.foundItems" class="col-xs-6 col-md-4">
-            <div ui-sref="item({id: item.id})">
-                <a class="pointer">
-                    <img ng-src="{{ item.imageData }}" class="img-rounded tile-image">
-                </a>
+            <div class="tile">
+                <div ui-sref="item({id: item.id})">
+                    <a class="pointer">
+                        <img ng-src="{{ item.imageData }}" class="img-rounded tile-image">
+                    </a>
+                </div>
+                <div ui-sref="item({id: item.id})">
+                    <a class="pointer">
+                        <h4>{{ item.title }}</h4>
+                    </a>
+                </div>
+                <div ui-sref="item({id: item.id})">
+                    <a class="pointer">
+                        {{ item.prop_1 }}
+                    </a>
+                </div>
+                <div ui-sref="item({id: item.id})">
+                    <a class="pointer">
+                        {{ item.prop_2 }}
+                    </a>
+                </div>
+                <div ui-sref="item({id: item.id})">
+                    <a class="pointer">
+                        {{ item.prop_3 }}
+                    </a>
+                </div>
             </div>
-            <div ui-sref="item({id: item.id})">
-                <a class="pointer">
-                {{ item.title }}
-                </a>
-            </div>
-            <div ui-sref="item({id: item.id})">
-                <a class="pointer">
-                {{ item.prop_1 }}
-                </a>
-            </div>
-            <div ui-sref="item({id: item.id})">
-                <a class="pointer">
-                {{ item.prop_2 }}
-                </a>
-            </div>
-            <div ui-sref="item({id: item.id})">
-                <a class="pointer">
-                {{ item.prop_3 }}
-                </a>
-            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-sm-9">
+        </div>
+        <div class="col-sm-3">
+            <pagination></pagination>
         </div>
     </div>
 </div>

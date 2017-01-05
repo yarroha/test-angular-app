@@ -7,7 +7,6 @@ class ItemCrudController {
         this.state = state;
         this.$state = $state;
         this.itemsManager = itemsManager;
-        this.fileReader = new FileReader();
         this.resetChangesDisabled = false;
 
         this._prepareEditDataIfNeeded();
@@ -16,20 +15,14 @@ class ItemCrudController {
         this.updateFile = this.updateFile.bind(this);
     }
 
-    updateFile(fileBlob, scope) {
-        let loadEventListener = this.fileReader.addEventListener("load", () => {
-            this.state.crudPage.itemInForm.imageData = this.fileReader.result;
-            this.fileReader.removeEventListener('load', loadEventListener);
-            scope.$apply();
-        }, false);
-
-        this.fileReader.readAsDataURL(fileBlob);
+    updateFile() {
         this.checkPossibilityForResetChanges();
     }
 
     _prepareEditDataIfNeeded() {
         if (this.$stateParams.id) {
-            this.itemsManager.getByIdAndUpdateStockItemState(this.$stateParams.id);
+            this.itemsManager.getByIdAndUpdateStockItemState(this.$stateParams.id)
+                .then(this.checkPossibilityForResetChanges.bind(this));
         } else {
             this.itemsManager.clearStockItemState();
         }
@@ -38,11 +31,11 @@ class ItemCrudController {
     saveItem() {
         if (this.state.crudPage.itemInForm.id) {
             this.itemsManager.saveEditedItem().then(() => {
-                this.$state.go('items.table');
+                this.goToTableView();
             });
         } else {
             this.itemsManager.saveNewItem().then(() => {
-                this.$state.go('items.table');
+                this.goToTableView();
             });
         }
     }
@@ -54,18 +47,24 @@ class ItemCrudController {
 
         modalInstance.result.then(() => {
             this.itemsManager.deleteItem().then(() => {
-                this.$state.go('items.table');
+                this.goToTableView();
             });
         });
     }
 
     resetChanges() {
         this.itemsManager.resetChangesInEditForm();
+        this.form.$setUntouched();
         this.checkPossibilityForResetChanges();
     }
 
     checkPossibilityForResetChanges() {
+        // short and fast solution. is ok in the current case but maybe should be rewrtiten to the property by property comparison
         this.resetChangesDisabled = JSON.stringify(this.state.crudPage.stockItem) === JSON.stringify(this.state.crudPage.itemInForm);
+    }
+
+    goToTableView() {
+        this.$state.go('items.table');
     }
 }
 

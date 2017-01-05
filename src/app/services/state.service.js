@@ -3,9 +3,9 @@ export default class State {
         this.itemsPages = {
             searchValue: '',
             foundItems: [],
-            amountOFFoundItems: 0,
-            itemsPerPage: null,
-            currentPageNumber: null,
+            amountOfFoundItems: 0,
+            itemsPerPage: 3,
+            currentPageNumber: 1,
         };
         this.crudPage = {
             stockItem: {},

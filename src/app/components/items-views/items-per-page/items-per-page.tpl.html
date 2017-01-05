@@ -1,0 +1,8 @@
+<div class="items-per-page">
+    <label for="itemsPerPage"> Items per page: </label>
+    <select id="itemsPerPage"
+            ng-change="$ctrl.search()"
+            ng-model="$ctrl.state.itemsPages.itemsPerPage"
+            ng-options="+value as value for (key,value) in $ctrl.amounts">
+    </select>
+</div>

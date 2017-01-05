@@ -4,49 +4,143 @@
 
     <form name="$ctrl.form">
         <div class="input-group">
-            <span class="input-group-addon" id="sizing-addon1">Title</span>
-            <input type="text" ng-model="$ctrl.state.crudPage.itemInForm.title" ng-change="$ctrl.checkPossibilityForResetChanges()" class="form-control" placeholder="title">
+            <span class="input-group-addon">Title</span>
+            <input type="text"
+                   ng-model="$ctrl.state.crudPage.itemInForm.title"
+                   ng-change="$ctrl.checkPossibilityForResetChanges()"
+                   required=""
+                   ng-maxlength="255"
+                   class="form-control"
+                   placeholder="title"
+                   name="title"/>
+        </div>
+        <div ng-show="$ctrl.form.$submitted || $ctrl.form.title.$touched">
+            <div class="alert alert-danger" role="alert" ng-show="$ctrl.form.title.$error.required">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span>Title field is required.
+            </div>
+            <div class="alert alert-danger" role="alert" ng-show="$ctrl.form.title.$error.maxlength">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span>Filed can handle maximum 255 symbols.
+            </div>
         </div>
 
         <div class="input-group">
-            <span class="input-group-addon" id="sizing-addon2">Propery #1</span>
-            <input type="text" ng-model="$ctrl.state.crudPage.itemInForm.prop_1" ng-change="$ctrl.checkPossibilityForResetChanges()" class="form-control" placeholder="prop_1">
+            <span class="input-group-addon">Propery #1</span>
+            <input type="text"
+                   ng-model="$ctrl.state.crudPage.itemInForm.prop_1"
+                   ng-change="$ctrl.checkPossibilityForResetChanges()"
+                   required=""
+                   ng-maxlength="255"
+                   class="form-control"
+                   placeholder="prop_1"
+                   name="prop_1"/>
+        </div>
+        <div ng-show="$ctrl.form.$submitted || $ctrl.form.prop_1.$touched">
+            <div class="alert alert-danger" role="alert" ng-show="$ctrl.form.prop_1.$error.required">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span>Property 1 field is required.
+            </div>
+            <div class="alert alert-danger" role="alert" ng-show="$ctrl.form.prop_1.$error.maxlength">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span>Filed can handle maximum 255 symbols.
+            </div>
         </div>
 
         <div class="input-group">
-            <span class="input-group-addon" id="sizing-addon3">Propery #2</span>
-            <input type="text" ng-model="$ctrl.state.crudPage.itemInForm.prop_2" ng-change="$ctrl.checkPossibilityForResetChanges()" class="form-control" placeholder="prop_2">
+            <span class="input-group-addon">Propery #2</span>
+            <input type="text"
+                   ng-model="$ctrl.state.crudPage.itemInForm.prop_2"
+                   ng-change="$ctrl.checkPossibilityForResetChanges()"
+                   required=""
+                   ng-maxlength="255"
+                   class="form-control"
+                   placeholder="prop_2"
+                   name="prop_2"/>
+        </div>
+        <div ng-show="$ctrl.form.$submitted || $ctrl.form.prop_2.$touched">
+            <div class="alert alert-danger" role="alert" ng-show="$ctrl.form.prop_2.$error.required">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span>Property 2 field is required.
+            </div>
+            <div class="alert alert-danger" role="alert" ng-show="$ctrl.form.prop_2.$error.maxlength">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span>Filed can handle maximum 255 symbols.
+            </div>
         </div>
 
         <div class="input-group">
-            <span class="input-group-addon" id="sizing-addon4">Propery #3</span>
-            <input type="text" ng-model="$ctrl.state.crudPage.itemInForm.prop_3" ng-change="$ctrl.checkPossibilityForResetChanges()" class="form-control" placeholder="prop_3">
+            <span class="input-group-addon">Propery #3</span>
+            <input type="text"
+                   ng-model="$ctrl.state.crudPage.itemInForm.prop_3"
+                   ng-change="$ctrl.checkPossibilityForResetChanges()"
+                   required=""
+                   ng-maxlength="255"
+                   class="form-control"
+                   placeholder="prop_3"
+                   name="prop_3"/>
+        </div>
+        <div ng-show="$ctrl.form.$submitted || $ctrl.form.prop_3.$touched">
+            <div class="alert alert-danger" role="alert" ng-show="$ctrl.form.prop_3.$error.required">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span>Property 3 field is required.
+            </div>
+            <div class="alert alert-danger" role="alert" ng-show="$ctrl.form.prop_3.$error.maxlength">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span>Filed can handle maximum 255 symbols.
+            </div>
         </div>
 
         <h4>Item's Image</h4>
         <div class="fileinput fileinput-new" data-provides="fileinput">
             <span class="btn btn-default btn-file">
                 <span>Choose file or drop it here</span>
-                <input type="file" custom-on-change="$ctrl.updateFile" custom-on-drop="$ctrl.updateFile"/>
+                <input type="file"
+                       custom-on-update="$ctrl.updateFile"
+                       file-validation
+                       ng-model="$ctrl.state.crudPage.itemInForm.imageData"
+                       required=""
+                       name="file"/>
             </span>
         </div>
+        <div ng-show="$ctrl.form.$submitted || $ctrl.form.file.$touched">
+            <div class="alert alert-danger" role="alert" ng-show="$ctrl.form.file.$error.required">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span>File should be attached.
+            </div>
+            <div class="alert alert-danger" role="alert" ng-show="$ctrl.form.file.$error.accept">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span>File should be accept.
+            </div>
+            <div class="alert alert-danger" role="alert" ng-show="$ctrl.form.file.$error.maxsize">
+                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                <span class="sr-only">Error:</span>File should be maxsize.
+            </div>
+        </div>
 
-        <h4 ng-if="$ctrl.state.crudPage.itemInForm.imageData !== ''">Item's preview</h4>
-        <img class="img-rounded preview-image" ng-src="{{ $ctrl.state.crudPage.itemInForm.imageData }}"/>
+        <div ng-if="$ctrl.state.crudPage.itemInForm.imageData !== ''">
+            <h4>Item's preview:</h4>
+            <img class="img-rounded preview-image"
+                 ng-src="{{ $ctrl.state.crudPage.itemInForm.imageData }}"
+                 ng-model="$ctrl.state.crudPage.itemInForm.imageData"/>
+        </div>
 
     </form>
 
-    <button type="button" class="btn btn-default" ng-click="$ctrl.saveItem()">Save Item</button>
     <button type="button" class="btn btn-default"
             ng-click="$ctrl.deleteItem()"
             ng-if="$ctrl.state.crudPage.itemInForm.id">
-        Delete Item
+        Delete
+    </button>
+    <button type="button" class="btn btn-default"
+            ng-click="$ctrl.saveItem()"
+            ng-disabled="!$ctrl.form.$valid || $ctrl.resetChangesDisabled">
+        Save changes
     </button>
     <button type="button" class="btn btn-default"
             ng-click="$ctrl.resetChanges()"
             ng-disabled="$ctrl.resetChangesDisabled">
         Reset changes
     </button>
-
-
+    <button type="button" class="btn btn-default" ng-click="$ctrl.goToTableView()">Cancel</button>
 </div>

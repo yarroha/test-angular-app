@@ -35,7 +35,7 @@ export default class FakeBackend {
                 let acceptableBySearchQuery = this._searchThroughProperties(item, params.search_string);
 
                 if (acceptableBySearchQuery) {
-                    if (offset <= total && total <= limit) {
+                    if (offset <= total && total < limit) {
                         resultItems.push(item);
                     }
                     total++;
@@ -130,7 +130,7 @@ export default class FakeBackend {
             return true;
         }
 
-        return (item.title + item.prop_1 + item.prop_2 + item.prop_3).indexOf(searchString) == -1;
+        return (item.title + item.prop_1 + item.prop_2 + item.prop_3).indexOf(searchString) !== -1;
     }
 }
 

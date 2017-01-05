@@ -1,22 +1,44 @@
-<table class="table">
-    <thead>
-    <tr>
-        <th>Title</th>
-        <th>Property #1</th>
-        <th>Property #2</th>
-        <th>Property #3</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr ng-repeat="item in $ctrl.state.itemsPages.foundItems">
-        <td ui-sref="item({id: item.id})">
-            <a class="pointer">
-                {{ item.title }}
-            </a>
-        </td>
-        <td>{{ item.prop_1 }}</td>
-        <td>{{ item.prop_2 }}</td>
-        <td>{{ item.prop_3 }}</td>
-    </tr>
-    </tbody>
-</table>
+<div class="items-table-view">
+    <div class="row">
+        <div class="col-sm-6">
+            <search-input></search-input>
+        </div>
+        <div class="col-sm-3">
+            <items-per-page></items-per-page>
+        </div>
+        <div class="col-sm-3">
+            <pagination></pagination>
+        </div>
+    </div>
+    <div class="row">
+        <table class="table">
+            <thead>
+            <tr>
+                <th>Title</th>
+                <th>Property #1</th>
+                <th>Property #2</th>
+                <th>Property #3</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="item in $ctrl.state.itemsPages.foundItems">
+                <td ui-sref="item({id: item.id})">
+                    <a class="pointer">
+                        {{ item.title }}
+                    </a>
+                </td>
+                <td>{{ item.prop_1 }}</td>
+                <td>{{ item.prop_2 }}</td>
+                <td>{{ item.prop_3 }}</td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="row">
+        <div class="col-sm-9">
+        </div>
+        <div class="col-sm-3">
+            <pagination></pagination>
+        </div>
+    </div>
+</div>
